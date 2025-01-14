@@ -3,11 +3,58 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/public/styles.public/global.css">
+    <link rel="stylesheet" href="/public/styles.public/global.css" />
     <title>Ideas</title>
   </head>
   <body>
-    <h1>Hello, World</h1>
+    <div id="app">
+      <!-- whole app container --->
+      <header class="headers home">
+        <!-- header section container --->
+        <h1>WELCOME</h1>
+      </header>
+      <div id="main">
+        <!-- main section -->
+        <nav id="nav-bar">
+          <!-- side navigation section -->
+          <!-- <h2>navigation</h2> -->
+          <ul id="nav-item">
+            <li class="nav-link">
+              <a href="/">
+                <img class="nav-icon" src="#" /> Home
+              </a>
+            </li>
+            <li class="nav-link">
+              <a href="/public/pages.public/completed">
+                <img class="nav-icon" src="#" />Completed
+              </a>
+            </li>
+            <li class="nav-link">
+              <a href="/favorites">
+                <img class="nav-icon" src="#" />Favorites
+              </a>
+            </li>
+            <li class="nav-link">
+              <a href="/trash">
+                <img class="nav-icon" src="#" />Trash
+              </a>
+            </li>
+            <li class="nav-link">
+              <a href="/settings">
+                <img class="nav-icon" src="#" />Settings
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <section class="content" id="content-home">
+          <!-- content -->
+          <h2>No place like home</h2>
+        </section>
+      </div>
+      <footer id="footer" class="home">
+        <span id="copyright"></span>
+      </footer>
+    </div>
 
     <script src="/public/scripts.public/app.js"></script>
   </body>
