@@ -1,21 +1,24 @@
-import handleGetFile from './handleGetFile.js';
+import { readFile } from 'fs/promises';
 
-export default class FilesHandler {
-  constructor($filePath) {
-    this.filePath = $filePath;
-  }
-
-  getFile() {
+export default function FilesHandler($filePath) {
+  return async function getFile() {
+    //check file type to see if supported
     if (
-      /\.CSS$/i.test(this.filePath) ||
-      /\.HTML$/i.test(this.filePath) ||
-      /\.JS$/i.test(this.filePath) ||
-      /(\.JPEG$)/i.test(this.filePath) ||
-      /(\.SVG$)/i.test(this.filePath) ||
-      /(\.PNG$)/i.test(this.filePath) ||
-      /(\.JPG$)/i.test(this.filePath)
-    )
-      return handleGetFile(this.filePath);
-    else return 'Unsupported file type.';
-  }
+      /\.CSS$/i.test($filePath) ||
+      /\.HTML$/i.test($filePath) ||
+      /\.JS$/i.test($filePath) ||
+      /(\.JPEG$)/i.test($filePath) ||
+      /(\.SVG$)/i.test($filePath) ||
+      /(\.PNG$)/i.test($filePath) ||
+      /(\.JPG$)/i.test($filePath)
+    ) {
+      try {
+        const fileData = await readFile($filePath); //fetch file
+        return fileData;
+      } catch (err) {
+        throw new Error(`Error fetching file: ${err}`); // if error is encountered during file retrieval
+      }
+    } //return file
+    else return 'Unsupported file type.'; //if file not supported return unsupported
+  };
 }

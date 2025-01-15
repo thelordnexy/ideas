@@ -1,1 +1,1 @@
-window.alert('Welcome');
+// window.alert('Welcome');
