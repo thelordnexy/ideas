@@ -1,10 +1,15 @@
 const rootElement = document.getElementById('content-home');
 
 // get all ideas data
-fetch('http://localhost:3000/?getIdea=all')
-  .then((response) => response.json())
-  .then((data) => addDataToRoot(data))
-  .catch((err) => console.error(err));
+fetch('http://192.168.107.180:3000/?getIdeas=all')
+  .then((response) => {
+    if (!response) throw new Error(`HTTP error! status: ${response.status}`);
+    return response.json();
+  })
+  .then((data) => {
+    addDataToRoot(data);
+  })
+  .catch((err) => console.error('Error:', err));
 
 //Display ideas
 function addDataToRoot(data) {

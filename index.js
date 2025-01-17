@@ -21,6 +21,14 @@ server.on('request', (req, res) => {
     case 'DELETE':
       HttpHandler(req, res).delete();
       break;
+    case 'OPTIONS':
+      res.writeHead(200, {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET,POST,PUT,DELETE,OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type,Authorization',
+      });
+      res.end();
+      break;
     default:
       res.end('Not a valid Http request');
   }

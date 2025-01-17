@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node .",
+    "start": "nodemon .",
     "test": "node ./tests/index.test.js",
     "lint": "eslint .",
     "pi": "python3 ./utils/resolveFilePath.py"
@@ -21,6 +21,7 @@
     "eslint-plugin-prettier": "^5.2.1",
     "globals": "^15.14.0",
     "jest": "^29.7.0",
+    "nodemon": "^3.1.9",
     "prettier": "^3.4.2",
     "vitest": "^2.1.8"
   },

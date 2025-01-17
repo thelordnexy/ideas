@@ -24,14 +24,18 @@ export default async function handlGet($req, $res) {
 
       //handle database request
       const dbQueryOptions = handleDbQuery($req);
-      if (dbQueryOptions.qValue === 'all') {
-        const data = await DatabaseHandler().getIdeas();
-        $res.end(JSON.stringify(data[0]));
+      if (dbQueryOptions.qName === 'getIdeas') {
+        if (dbQueryOptions.qValue === 'all') {
+          const data = await DatabaseHandler().getIdeas();
+          $res.end(JSON.stringify(data[0]));
+        } else {
+          const data = await DatabaseHandler().getIdea(
+            Number(dbQueryOptions.qValue)
+          );
+          $res.end(JSON.stringify(data[0]));
+        }
       } else {
-        const data = await DatabaseHandler().getIdea(
-          Number(dbQueryOptions.qValue)
-        );
-        $res.end(JSON.stringify(data[0]));
+        throw new Error('Invalid api request');
       }
     }
   } catch (err) {
