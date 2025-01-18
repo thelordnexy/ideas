@@ -1,5 +1,5 @@
 import http from 'http';
-import setHeaders from './utils/http.utils/setHeaders.http.util.js';
+import setHeaders from './utils/http.utils/__setHeaders.http.util.js';
 import HttpHandler from './api/httpHandler.api/HttpHandler.class.js';
 
 const server = http.createServer();
@@ -22,11 +22,8 @@ server.on('request', (req, res) => {
       HttpHandler(req, res).delete();
       break;
     case 'OPTIONS':
-      res.writeHead(200, {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET,POST,PUT,DELETE,OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type,Authorization',
-      });
+      setHeaders(res);
+      res.statusCode = 204;
       res.end();
       break;
     default:

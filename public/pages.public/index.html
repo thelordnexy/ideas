@@ -2,7 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
     <link rel="stylesheet" href="/public/styles.public/global.css" />
     <title>Ideas</title>
   </head>
@@ -19,22 +23,77 @@
         <nav id="nav-bar">
           <ul id="nav-item">
             <li class="nav-link">
-              <img class="nav-icon" id="nav-icon-home" src="/public/assets.public/home.png" title="All Ideas" />
+              <img
+                class="nav-icon"
+                id="nav-icon-home"
+                src="/public/assets.public/home.png"
+                title="All Ideas"
+              />
             </li>
             <li class="nav-link">
-              <img class="nav-icon" src="/public/assets.public/checked.png" title="Completed Ideas" />
+              <img
+                class="nav-icon"
+                src="/public/assets.public/checked.png"
+                title="Completed Ideas"
+              />
             </li>
             <li class="nav-link">
-              <img class="nav-icon" src="/public/assets.public/favorite.png" title="Favorite Ideas" />
+              <img
+                class="nav-icon"
+                src="/public/assets.public/favorite.png"
+                title="Favorite Ideas"
+              />
+            </li>
+            <li class="nav-link">
+              <img
+                class="nav-icon"
+                id="createIdeaButton"
+                src="/public/assets.public/edit.png"
+                title="Create a new idea"
+              />
             </li>
           </ul>
         </nav>
         <section class="content" id="content-home">
           <!-- content -->
         </section>
+        <!-- modals -->
+        <div id="modals">
+          <div id="createIdeaSection">
+            <h2>Want to create a new idea?</h2>
+            <br /><br />
+            <form
+              name="createIdeaForm"
+              id="createIdeaForm"
+              action=""
+              method="post"
+            >
+              <label for="ideaName"></label>
+              <input
+                type="text"
+                name="ideaName"
+                id="ideaName"
+                placeholder="Name of the Idea"
+              /><br />
+              <label for="ideaDescription"></label><br />
+              <textarea
+                name="ideaDescription"
+                id="ideaDescription"
+                cols="22"
+                rows="5"
+                placeholder="What is the idea about?"
+              ></textarea
+              ><br /><br />
+
+              <button id="submitIdeaButton">Create Idea</button><br /><br />
+              <button id="Cancel">Cancel</button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
 
-    <script src="/public/scripts.public/app.js"></script>
+    <script src="/public/scripts.public/app.js" type="module"></script>
+    <!-- <script src ></script> -->
   </body>
 </html>

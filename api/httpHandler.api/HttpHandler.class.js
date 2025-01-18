@@ -6,7 +6,8 @@ export default function HttpHandler($req, $res) {
       handlGet($req, $res);
     },
     post() {
-      $res.end('Entry Added successfully');
+      console.log($req.body)
+      $res.end($req.body);
     },
     put() {
       $res.end('Entry edited successfully');

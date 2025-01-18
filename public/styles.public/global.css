@@ -6,6 +6,8 @@
   --accent-color-2: #f7eaff;
   --accent-color-3: #958f9949;
 
+  --ideas-color: #37283fea;
+
   --header-height: 1.5vh 0 1.5vh 0;
   --footer-height: 4vh 0 2vh 0;
 }
@@ -83,19 +85,74 @@ Styles for desktops and large screens, the default page styles.
 
 /* ideas */
 .idea {
-  background-color: #37283fea;
+  background-color: var(--ideas-color);
   color: var(--accent-color-2);
   width: 75vw;
   padding: 3vh 1vw 3vh 2vw;
   margin-bottom: 6vh;
   border-radius: 8px;
   p {
-    color: #e0d2e767;
+    color: #eae1ee67;
     margin-left: 1vw;
-    padding-left: 2vw;
+    padding: 1vh 0 1vh 2vw;
     border-left: 2px solid #e0d2e767;
   }
 }
+
+/* modals */
+
+#createIdeaSection {
+  background-color: #37283fef;
+  color: var(--accent-color-2);
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  text-align: center;
+  padding: 22vh 0 0 0;
+  display: none;
+}
+
+#createIdeaForm {
+  #ideaName {
+    width: 20vw;
+    padding: 1vh 1vw;
+    border: none;
+    border-radius: 8px;
+    letter-spacing: 1px;
+  }
+  #ideaDescription {
+    width: 20vw;
+    padding: 1vh 1vw;
+    border: none;
+    border-radius: 8px;
+    /* background-color: var(--accent-color); */
+  }
+  #submitIdeaButton {
+    width: 20vw;
+    padding: 1.5vh 6vw;
+    border: none;
+    border-radius: 8px;
+    color: var(--accent-color);
+    font-weight: 600;
+    background-color: #c076ee;
+  }
+  #Cancel {
+    width: 20vw;
+    padding: 1.5vh 6vw;
+    border: none;
+    border-radius: 8px;
+    color: var(--accent-color-2);
+    font-weight: 600;
+    background-color: #690d0a;
+  }
+}
+
+/* #createIdea {
+  height: 30px !important;
+  width: 30px !important;
+} */
 /* default end */
 
 /**
@@ -106,9 +163,6 @@ Styles for mobile phones and small screens, the mobile page styles.
     display: block;
   }
   #nav-bar {
-    /* position: sticky;
-    top: 0;
-    left: 0; */
     display: flex;
     width: 100vw;
     height: 6vh;
@@ -132,6 +186,10 @@ Styles for mobile phones and small screens, the mobile page styles.
           width: 25px !important;
           height: 25px !important;
         }
+        #createIdeaButton {
+          height: 25px !important;
+          width: 25px !important;
+        }
       }
     }
   }
@@ -141,9 +199,41 @@ Styles for mobile phones and small screens, the mobile page styles.
   }
   .content {
     width: 100vw;
-    height: 90vh;
+    height: fit-content;
     padding: 6vh 0 0 6vw;
-    background-color: #fff !important;
+    background-color: var(--accent-color-3) !important;
+  }
+  #createIdeaForm {
+    /* display: grid; */
+    /* grid-template-columns: ; */
+    #ideaName {
+      width: 80vw !important;
+      padding: 1.5vh 2.5vw !important;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+    }
+    #ideaDescription {
+      width: 80vw !important;
+      padding: 1.5vh 2.5vw !important;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      /* background-color: var(--accent-color); */
+    }
+    #submitIdeaButton {
+      width: 80vw !important;
+      padding: 1.5vh 6vw;
+      border: none;
+      border-radius: 8px;
+      /* background-color: var(--accent-color); */
+    }
+    #Cancel {
+      width: 80vw !important;
+      padding: 1.5vh 6vw;
+      border: none;
+      border-radius: 8px;
+    }
   }
 }
 /* mobile end*/

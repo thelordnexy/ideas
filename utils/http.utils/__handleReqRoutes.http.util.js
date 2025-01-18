@@ -1,4 +1,4 @@
-import resolveFilePath from '../resolveFilePath.util.js';
+import resolveFilePath from '../__resolveFilePath.util.js';
 
 export default function handleReqRoutes($req, $res) {
   if ($req.url === '/') {

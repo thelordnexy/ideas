@@ -1,10 +1,11 @@
-import parseGetReqType from '../../utils/http.utils/parseGetReqType.http.util.js';
+import parseGetReqType from '../../utils/http.utils/__parseGetReqType.http.util.js';
 import FilesHandler from '../filesHandler.api/FilesHandler.class.js';
-import setFileTypeHeader from '../../utils/http.utils/setFileTypeHeader.http.util.js';
-import handleReqRoutes from '../../utils/http.utils/handleReqRoutes.http.util.js';
-import handleErrors from '../../utils/handleErrors.util.js';
-import handleDbQuery from '../../utils/http.utils/handleDbQuery.http.util.js';
+import setFileTypeHeader from '../../utils/http.utils/__setFileTypeHeader.http.util.js';
+import handleReqRoutes from '../../utils/http.utils/__handleReqRoutes.http.util.js';
+import handleErrors from '../../utils/__handleErrors.util.js';
+import handleDbQuery from '../../utils/http.utils/__handleDbQuery.http.util.js';
 import DatabaseHandler from '../databaseHandler.api/DatabaseHandler.class.js';
+import getHostAddress from '../../utils/http.utils/__getHostAddress.http.util.js';
 
 export default async function handlGet($req, $res) {
   try {
@@ -37,6 +38,10 @@ export default async function handlGet($req, $res) {
       } else {
         throw new Error('Invalid api request');
       }
+    } else if (reqType === 'hostAddress') {
+      //get host ip
+      const address = getHostAddress();
+      $res.end(address);
     }
   } catch (err) {
     //handle errors
